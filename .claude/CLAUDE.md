@@ -35,5 +35,7 @@ store and upload conventions. This file only records what is specific to this mo
 - Design note: docs/superpowers/specs/2026-11-09-safe-deposit-design.md.
 
 ## Upload
+- Store IDs: Modrinth `gUlEAcca` (slug `safe-deposit`), CurseForge `1794734`. Repo
+  github.com/johnnyscriptt/safedeposit (public).
 - `upload-pack/UPLOAD-GUIDE.md` has every store field. Stores are logged in on the Windows
   Chrome. Modrinth: no AI images, in-game-render icon. CurseForge: ChatGPT icon.
