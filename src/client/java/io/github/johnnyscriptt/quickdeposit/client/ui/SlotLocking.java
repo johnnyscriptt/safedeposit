@@ -1,7 +1,6 @@
 package io.github.johnnyscriptt.quickdeposit.client.ui;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import io.github.johnnyscriptt.quickdeposit.QuickDepositMod;
 import io.github.johnnyscriptt.quickdeposit.client.QuickDepositClient;
 import io.github.johnnyscriptt.quickdeposit.client.config.ConfigIo;
 import io.github.johnnyscriptt.quickdeposit.client.mixin.AbstractContainerScreenAccessor;
@@ -15,21 +14,18 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
 import net.minecraft.client.input.MouseButtonEvent;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 
 /**
  * Lock-key + left click on one of your own inventory slots toggles its lock, on any container
- * screen (the survival inventory too). Locked slots get a blue tint and a padlock. The creative
+ * screen (the survival inventory too). Locked slots get a blue tint, nothing else, so the item stays readable. The creative
  * inventory is left out because its slots are wrappers that don't map cleanly.
  */
 public final class SlotLocking {
 
-    private static final Identifier LOCK_SPRITE = Identifier.fromNamespaceAndPath(QuickDepositMod.MOD_ID, "lock");
     /** Accent #4FC3F7 at the passive-overlay alpha (~0.22). */
     private static final int TINT = 0x384FC3F7;
 
@@ -73,7 +69,6 @@ public final class SlotLocking {
                 int x = access.quickdeposit$leftPos() + slot.x;
                 int y = access.quickdeposit$topPos() + slot.y;
                 g.fill(x, y, x + 16, y + 16, TINT);
-                g.blitSprite(RenderPipelines.GUI_TEXTURED, LOCK_SPRITE, x, y, 16, 16);
             }
         }
     }

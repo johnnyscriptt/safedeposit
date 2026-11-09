@@ -75,8 +75,8 @@ entry `quick-deposit-project` + MEMORY.md line.
   belongs to the player `Inventory` and its index is 0..35: toggle it, save the config, play
   vanilla `UI_BUTTON_CLICK`, and swallow the click. Hovered slot comes from an accessor mixin
   on `AbstractContainerScreen` (copy `AbstractContainerScreenAccessor`, add `hoveredSlot`).
-- `render/LockOverlay`: after the screen renders, draw a tint (accent, alpha ~0.22) and a small
-  padlock sprite on each locked slot (`leftPos + slot.x`, `topPos + slot.y`). Confirm the 26.3
+- `render/LockOverlay`: after the screen renders, draw a tint (accent, alpha ~0.22)
+  on each locked slot, colour only (the padlock was dropped 2026-11-09 at the user's request) (`leftPos + slot.x`, `topPos + slot.y`). Confirm the 26.3
   hook name with `javap` (scaffold.md, 26.3 API notes).
 - Lang: button tooltip "Quick Deposit" + second line "Hold Left Alt and click a slot to lock it"
   (uses the actual bound key name).

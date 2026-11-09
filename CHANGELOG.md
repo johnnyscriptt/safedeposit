@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - A Quick Deposit button next to chests, double chests, barrels, ender chests and shulker boxes. One click moves everything from your inventory into the container.
-- Lock any inventory or hotbar slot by holding Left Alt and clicking it. Locked slots show a padlock and are never deposited.
+- Lock any inventory or hotbar slot by holding Left Alt and clicking it. Locked slots are tinted blue and are never deposited.
 - Locks are saved, and the lock key can be changed in Options, Controls, Quick Deposit.
 - Sits under Stardew Chest Buttons' buttons when both mods are installed.
 

@@ -9,7 +9,7 @@ Player-facing details will be in [`upload-pack/copy/description-modrinth.md`](up
 ## Using it
 
 - **Lock a slot:** hold **Left Alt** and click one of your inventory or hotbar slots. It gets a
-  blue tint and a padlock. Do it again to unlock. Works in the normal inventory and in any
+  blue tint. Do it again to unlock. Works in the normal inventory and in any
   container screen. Locks belong to the slot, not the item, and are saved in
   `config/quickdeposit.json`.
 - **Deposit:** open a chest, double chest, barrel, ender chest or shulker box and press the
@@ -54,7 +54,7 @@ gitignored).
   (validates the open menu, splits container and inventory slots, runs the core), and
   `SlotViewAdapter`/`StackKey` (live slots to the core's view; `accepts` uses `Slot.mayPlace`,
   so shulker boxes never go into shulker boxes).
-- `src/client`: lock key, `ui/SlotLocking` (Alt-click hook and padlock overlay),
+- `src/client`: lock key, `ui/SlotLocking` (Alt-click hook and blue tint overlay),
   `ui/DepositButton`, `config/ConfigIo`.
 - `src/gametest`: `DepositGameTest` drives real input (Alt-click, button click) and checks the
   result on the server. Not in the jar.
