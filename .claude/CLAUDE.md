@@ -17,11 +17,20 @@ store and upload conventions. This file only records what is specific to this mo
 - TDD: a failing test is seen before implementation. Pure logic lives in `core/` with no
   Minecraft imports; `src/test` only compiles against `src/main`.
 - Accent colour `#4FC3F7`: in-game highlight, caption bar, icon glow.
-- Default keys: <record them here, and check references/scaffold.md for clashes>.
+- Default keys: Left Alt = lock slot (held while clicking a slot inside a screen).
 - Store text: no em dashes. `.ps1` string literals stay ASCII.
 
 ## Domain notes
-- <rules that are easy to get wrong>
+- Client + server. The client sends only the lock mask; the server re-validates the menu
+  (ChestMenu or ShulkerBoxMenu, stillValid, empty cursor), strips mask bits above 35 and
+  rate-limits to one request per 5 ticks.
+- Locks are inventory indices (0-8 hotbar, 9-35 main), never menu slot numbers, which differ
+  per container. Armour (36-39) and offhand (40) are never deposited.
+- Key mappings don't update inside screens: SlotLocking reads the physical key
+  (`InputConstants.isKeyDown` on the bound key). `InputConstants.Type` is KEYBOARD/MOUSE in 26.3.
+- `SlotView.accepts` maps to `Slot.mayPlace`, which is what keeps shulker boxes out of shulker boxes.
+- Button shares Stardew Chest Buttons' left column; offset 48 px when `chestbuttons` is loaded.
+- Design note: docs/superpowers/specs/2026-11-09-quick-deposit-design.md.
 
 ## Upload
 - `upload-pack/UPLOAD-GUIDE.md` has every store field. Stores are logged in on the Windows
