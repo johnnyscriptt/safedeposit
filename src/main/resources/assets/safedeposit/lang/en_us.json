@@ -1,0 +1,7 @@
+{
+  "key.category.safedeposit.main": "Safe Deposit",
+  "key.safedeposit.lock_slot": "Lock slot (hold + click)",
+  "safedeposit.button": "Safe Deposit",
+  "safedeposit.button.hint": "Hold %s and click a slot to lock it",
+  "safedeposit.button.needs_server": "The server needs Safe Deposit for this button"
+}

@@ -15,7 +15,7 @@ loom {
     splitEnvironmentSourceSets()
 
     mods {
-        "quickdeposit" {
+        "safedeposit" {
             sourceSet sourceSets.main
             sourceSet sourceSets.client
         }
@@ -28,7 +28,7 @@ loom {
 fabricApi {
     configureTests {
         createSourceSet = true
-        modId = "quickdeposit-gametest"
+        modId = "safedeposit-gametest"
         enableGameTests = false
         enableClientGameTests = true
         eula = true

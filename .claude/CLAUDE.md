@@ -1,4 +1,4 @@
-# Quick Deposit (Fabric mod)
+# Safe Deposit (Fabric mod)
 
 Built and published with the `minecraft-mod-studio` skill; its references hold the brand,
 store and upload conventions. This file only records what is specific to this mod.
@@ -11,7 +11,7 @@ store and upload conventions. This file only records what is specific to this mo
 ## Commands (run from this folder; the parent folder is not a Gradle project)
 - `.\gradlew.bat test`, `.\gradlew.bat build`, `.\gradlew.bat runClientGameTest`.
 - Deploy for testing: quit Minecraft, remove the old jar, copy
-  `build\libs\quickdeposit-<ver>.jar` into `%APPDATA%\.minecraft\mods\`.
+  `build\libs\safedeposit-<ver>.jar` into `%APPDATA%\.minecraft\mods\`.
 
 ## Conventions
 - TDD: a failing test is seen before implementation. Pure logic lives in `core/` with no
@@ -21,6 +21,8 @@ store and upload conventions. This file only records what is specific to this mo
 - Store text: no em dashes. `.ps1` string literals stay ASCII.
 
 ## Domain notes
+- Renamed from "Quick Deposit" on 2026-11-09 before release: that name was already taken on
+  Modrinth and CurseForge by other authors' deposit mods.
 - Client + server. The client sends only the lock mask; the server re-validates the menu
   (ChestMenu or ShulkerBoxMenu, stillValid, empty cursor), strips mask bits above 35 and
   rate-limits to one request per 5 ticks.
@@ -30,7 +32,7 @@ store and upload conventions. This file only records what is specific to this mo
   (`InputConstants.isKeyDown` on the bound key). `InputConstants.Type` is KEYBOARD/MOUSE in 26.3.
 - `SlotView.accepts` maps to `Slot.mayPlace`, which is what keeps shulker boxes out of shulker boxes.
 - Button shares Stardew Chest Buttons' left column; offset 48 px when `chestbuttons` is loaded.
-- Design note: docs/superpowers/specs/2026-11-09-quick-deposit-design.md.
+- Design note: docs/superpowers/specs/2026-11-09-safe-deposit-design.md.
 
 ## Upload
 - `upload-pack/UPLOAD-GUIDE.md` has every store field. Stores are logged in on the Windows

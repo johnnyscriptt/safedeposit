@@ -9,4 +9,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = 'quickdeposit'
+rootProject.name = 'safedeposit'

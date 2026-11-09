@@ -1,4 +1,4 @@
-# Quick Deposit
+# Safe Deposit
 
 A Fabric mod for Minecraft 26.3. One button next to a chest moves everything from your
 inventory into it, except the slots you have locked. Lock your sword, pickaxe and food once,
@@ -11,13 +11,13 @@ Player-facing details will be in [`upload-pack/copy/description-modrinth.md`](up
 - **Lock a slot:** hold **Left Alt** and click one of your inventory or hotbar slots. It gets a
   blue tint. Do it again to unlock. Works in the normal inventory and in any
   container screen. Locks belong to the slot, not the item, and are saved in
-  `config/quickdeposit.json`.
+  `config/safedeposit.json`.
 - **Deposit:** open a chest, double chest, barrel, ender chest or shulker box and press the
   button to the left of it. Every unlocked slot of the 36 main and hotbar slots empties into
   the container: matching stacks are topped up first, then empty slots are used. Armour and
   offhand are never touched. Whatever doesn't fit stays where it was.
 
-The lock key is rebindable in Options, Controls, under **Quick Deposit**.
+The lock key is rebindable in Options, Controls, under **Safe Deposit**.
 
 ## Multiplayer
 
@@ -28,7 +28,7 @@ still work since they live on your side.
 
 ## Playing with Stardew Chest Buttons
 
-Both mods put buttons to the left of the chest. When Chest Buttons is installed, Quick Deposit
+Both mods put buttons to the left of the chest. When Chest Buttons is installed, Safe Deposit
 sits under its two buttons in the same column.
 
 ## Building
@@ -37,7 +37,7 @@ Needs JDK 25. From this folder:
 
 ```
 .\gradlew.bat test                 unit tests (core/)
-.\gradlew.bat build                build\libs\quickdeposit-<version>.jar
+.\gradlew.bat build                build\libs\safedeposit-<version>.jar
 .\gradlew.bat runClientGameTest    in-game deposit test, screenshots in build\run\clientGameTest\screenshots
 .\gradlew.bat runServer            dedicated server (run\server.properties uses port 25599)
 ```
@@ -47,10 +47,10 @@ gitignored).
 
 ## Architecture
 
-- `core/`: pure Java, no Minecraft imports, unit-tested. `QuickDeposit` (the two-pass
+- `core/`: pure Java, no Minecraft imports, unit-tested. `SafeDeposit` (the two-pass
   deposit), `LockedSlots` (36-bit lock mask), `DepositRules` (rate limit),
-  `config/QuickDepositConfig`.
-- `src/main`: `QuickDepositPayload` (C2S, carries the lock mask), `server/DepositHandler`
+  `config/SafeDepositConfig`.
+- `src/main`: `SafeDepositPayload` (C2S, carries the lock mask), `server/DepositHandler`
   (validates the open menu, splits container and inventory slots, runs the core), and
   `SlotViewAdapter`/`StackKey` (live slots to the core's view; `accepts` uses `Slot.mayPlace`,
   so shulker boxes never go into shulker boxes).

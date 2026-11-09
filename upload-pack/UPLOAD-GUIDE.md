@@ -1,4 +1,4 @@
-# Upload pack: Quick Deposit 0.1.0
+# Upload pack: Safe Deposit 0.1.0
 
 Everything needed to fill in both listings. Nothing here is referenced by the build.
 
@@ -16,7 +16,7 @@ upload-pack/
 │  ├─ curseforge-avatar-400.png     ChatGPT art, CurseForge only
 │  ├─ modrinth-icon-512.png         in-game render, Modrinth
 │  └─ mod-icon-128.png              in-game render, also in the jar
-└─ files/quickdeposit-0.1.0.jar        the upload (main jar only, never -sources; gitignored)
+└─ files/safedeposit-0.1.0.jar        the upload (main jar only, never -sources; gitignored)
 ```
 
 House rule: no em dashes anywhere in store text. Run `check_store_text.py` over `copy/` and
@@ -26,16 +26,16 @@ House rule: no em dashes anywhere in store text. Run `check_store_text.py` over 
 
 | Field | Value |
 | --- | --- |
-| Mod name | Quick Deposit |
-| Mod id | `quickdeposit` |
+| Mod name | Safe Deposit |
+| Mod id | `safedeposit` |
 | Version | 0.1.0 |
 | Minecraft | 26.3 |
 | Loader | Fabric (Loader 0.19.5 or newer) |
 | Java | 25 |
 | Dependency | **Fabric API, required** |
 | License | MIT |
-| Source | https://github.com/johnnyscriptt/quickdeposit (public before submitting) |
-| Issues | https://github.com/johnnyscriptt/quickdeposit/issues |
+| Source | https://github.com/johnnyscriptt/safedeposit (public before submitting) |
+| Issues | https://github.com/johnnyscriptt/safedeposit/issues |
 | Author | johnnyscriptt |
 | Accent | `#4FC3F7` |
 
@@ -43,7 +43,7 @@ House rule: no em dashes anywhere in store text. Run `check_store_text.py` over 
 
 | Field | What to put |
 | --- | --- |
-| Name / slug | `Quick Deposit` / `quick-deposit` |
+| Name / slug | `Safe Deposit` / `safe-deposit` |
 | Summary | PRIMARY line of `copy/summary.txt` |
 | Description | `copy/description-modrinth.md` |
 | Icon | `icon/modrinth-icon-512.png` (never the ChatGPT one) |
@@ -54,22 +54,22 @@ House rule: no em dashes anywhere in store text. Run `check_store_text.py` over 
 | AI disclosure | on: "The code was written with an AI coding assistant (Claude). Store text was drafted with AI and edited by hand. The icon and gallery are real in-game captures." |
 
 Gallery: every image in order, 01 featured, titles and descriptions from `gallery/captions.md`.
-Version: `files/quickdeposit-0.1.0.jar`, number `0.1.0`, title `Quick Deposit 0.1.0`, Fabric, 26.3,
+Version: `files/safedeposit-0.1.0.jar`, number `0.1.0`, title `Safe Deposit 0.1.0`, Fabric, 26.3,
 Fabric API Required, changelog `copy/changelog-0.1.0.md`, Release.
 
 ## CurseForge
 
 | Field | What to put |
 | --- | --- |
-| Name | `Quick Deposit` |
+| Name | `Safe Deposit` |
 | Summary | same PRIMARY line |
 | Description | `copy/description-curseforge.html` |
 | Logo | `icon/curseforge-avatar-400.png` (under 100 KB) |
 | Categories | Utility & QoL (main), Storage |
 | License | MIT, allow distribution to 3rd party |
-| Source | GitHub, `johnnyscriptt/quickdeposit` |
+| Source | GitHub, `johnnyscriptt/safedeposit` |
 
-File: the jar, display name `Quick Deposit 0.1.0`, Release, Client + Server, Fabric,
+File: the jar, display name `Safe Deposit 0.1.0`, Release, Client + Server, Fabric,
 Java 25, 26.3, Fabric API as Required Dependency, changelog, publish automatically once approved.
 
 ## Before you upload

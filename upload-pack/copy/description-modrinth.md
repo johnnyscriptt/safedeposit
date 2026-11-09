@@ -1,15 +1,15 @@
-# Quick Deposit
+# Safe Deposit
 
 You get back from the mine with every slot full. Now it's shift-click, shift-click,
 shift-click, thirty-odd times, and somewhere in there you shift-click your pickaxe into the
 chest too.
 
-Quick Deposit gives the chest one button that moves the lot, and leaves alone the slots you
+Safe Deposit gives the chest one button that moves the lot, and leaves alone the slots you
 told it to keep.
 
 ## Lock what you keep
 
-- **Hold Left Alt and click a slot.** It turns blue. That slot is now locked, and Quick Deposit
+- **Hold Left Alt and click a slot.** It turns blue. That slot is now locked, and Safe Deposit
   will never take anything out of it. Click it again to unlock.
 - Locks belong to the slot, not the item. Lock hotbar slots 1 to 3 and whatever you keep
   there is safe, whether it's a pickaxe today or a stack of torches tomorrow.
@@ -31,7 +31,7 @@ told it to keep.
 | --- | --- |
 | Left Alt (held) + click a slot | Lock or unlock that slot |
 
-Rebindable in Options, Controls, under **Quick Deposit**.
+Rebindable in Options, Controls, under **Safe Deposit**.
 
 ## Multiplayer
 
@@ -51,7 +51,7 @@ to four a second.
 ## Plays well with
 
 Tested in a real launcher with Sodium, Iris, Litematica and MiniHUD installed.
-If you also use **Stardew Chest Buttons**, the Quick Deposit button sits under its two buttons
+If you also use **Stardew Chest Buttons**, the Safe Deposit button sits under its two buttons
 in the same column.
 
 ## Requires
@@ -63,7 +63,7 @@ in the same column.
 
 ## Not there yet
 
-- Locks only affect Quick Deposit. Shift-click, dropping items and sorting mods ignore them.
+- Locks only affect Safe Deposit. Shift-click, dropping items and sorting mods ignore them.
 - Locking doesn't work in the creative inventory screen.
 
 ## License

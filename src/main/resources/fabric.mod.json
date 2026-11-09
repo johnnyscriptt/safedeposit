@@ -1,26 +1,26 @@
 {
   "schemaVersion": 1,
-  "id": "quickdeposit",
+  "id": "safedeposit",
   "version": "${version}",
-  "name": "Quick Deposit",
+  "name": "Safe Deposit",
   "description": "One click deposits your inventory into a chest, except the slots you lock.",
   "authors": [
     "johnnyscriptt"
   ],
   "contact": {
-    "homepage": "https://github.com/johnnyscriptt/quickdeposit",
-    "sources": "https://github.com/johnnyscriptt/quickdeposit",
-    "issues": "https://github.com/johnnyscriptt/quickdeposit/issues"
+    "homepage": "https://github.com/johnnyscriptt/safedeposit",
+    "sources": "https://github.com/johnnyscriptt/safedeposit",
+    "issues": "https://github.com/johnnyscriptt/safedeposit/issues"
   },
   "license": "MIT",
-  "icon": "assets/quickdeposit/icon.png",
+  "icon": "assets/safedeposit/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.johnnyscriptt.quickdeposit.QuickDepositMod"
+      "io.github.johnnyscriptt.safedeposit.SafeDepositMod"
     ],
     "client": [
-      "io.github.johnnyscriptt.quickdeposit.client.QuickDepositClient"
+      "io.github.johnnyscriptt.safedeposit.client.SafeDepositClient"
     ]
   },
   "depends": {
@@ -31,7 +31,7 @@
   },
   "mixins": [
     {
-      "config": "quickdeposit.client.mixins.json",
+      "config": "safedeposit.client.mixins.json",
       "environment": "client"
     }
   ],
