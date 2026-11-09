@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "quickdeposit",
+  "version": "${version}",
+  "name": "Quick Deposit",
+  "description": "One click deposits your inventory into a chest, except the slots you lock.",
+  "authors": [
+    "johnnyscriptt"
+  ],
+  "contact": {
+    "homepage": "https://github.com/johnnyscriptt/quickdeposit",
+    "sources": "https://github.com/johnnyscriptt/quickdeposit",
+    "issues": "https://github.com/johnnyscriptt/quickdeposit/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/quickdeposit/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.johnnyscriptt.quickdeposit.QuickDepositMod"
+    ],
+    "client": [
+      "io.github.johnnyscriptt.quickdeposit.client.QuickDepositClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "fabric-api": "*",
+    "minecraft": "~26.3",
+    "java": ">=25"
+  }
+}

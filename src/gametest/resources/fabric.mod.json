@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "quickdeposit-gametest",
+  "version": "1.0.0",
+  "name": "Quick Deposit in-game tests",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-client-gametest": [
+      "io.github.johnnyscriptt.quickdeposit.gametest.StoreShotsGameTest",
+      "io.github.johnnyscriptt.quickdeposit.gametest.IconRenderGameTest"
+    ]
+  },
+  "depends": {
+    "quickdeposit": "*"
+  }
+}
