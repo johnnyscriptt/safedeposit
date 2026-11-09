@@ -1,3 +1,7 @@
 {
-  "key.category.quickdeposit.main": "Quick Deposit"
+  "key.category.quickdeposit.main": "Quick Deposit",
+  "key.quickdeposit.lock_slot": "Lock slot (hold + click)",
+  "quickdeposit.button": "Quick Deposit",
+  "quickdeposit.button.hint": "Hold %s and click a slot to lock it",
+  "quickdeposit.button.needs_server": "The server needs Quick Deposit for this button"
 }

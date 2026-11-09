@@ -28,5 +28,14 @@
     "fabric-api": "*",
     "minecraft": "~26.3",
     "java": ">=25"
+  },
+  "mixins": [
+    {
+      "config": "quickdeposit.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "suggests": {
+    "chestbuttons": "*"
   }
 }
