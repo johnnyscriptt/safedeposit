@@ -1,17 +1,10 @@
 package io.github.johnnyscriptt.quickdeposit.gametest;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import io.github.johnnyscriptt.quickdeposit.client.config.ConfigIo;
-import io.github.johnnyscriptt.quickdeposit.client.mixin.AbstractContainerScreenAccessor;
-import java.util.List;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
 import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
 import net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContext;
 import net.fabricmc.fabric.api.client.gametest.v1.screenshot.TestScreenshotOptions;
-import net.fabricmc.fabric.api.client.screen.v1.Screens;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.screens.inventory.ContainerScreen;
 import net.minecraft.client.gui.screens.inventory.ShulkerBoxScreen;
 import net.minecraft.core.BlockPos;
@@ -22,7 +15,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.inventory.Slot;
 
 /**
  * Drives the mod through real input: Alt-click two hotbar slots to lock them, press the
@@ -56,15 +48,15 @@ public final class DepositGameTest implements FabricClientGameTest {
                 return origin.offset(0, 0, 2);
             });
 
-            openAt(context, world, chest, ContainerScreen.class);
-            altClickInventorySlot(context, 0);
-            altClickInventorySlot(context, 5);
-            check(context.computeOnClient(c -> ConfigIo.get().locked().isLocked(0)
+            TestActions.openAt(context, world, chest, ContainerScreen.class);
+            TestActions.altClickInventorySlot(context, 0);
+            TestActions.altClickInventorySlot(context, 5);
+            TestActions.check(context.computeOnClient(c -> ConfigIo.get().locked().isLocked(0)
                     && ConfigIo.get().locked().isLocked(5)
                     && ConfigIo.get().locked().count() == 2), "Alt-click should lock slots 0 and 5");
             context.takeScreenshot(TestScreenshotOptions.of("deposit-01-locked").disableCounterPrefix());
 
-            clickDepositButton(context);
+            TestActions.clickDepositButton(context);
             context.waitTicks(10);
             context.takeScreenshot(TestScreenshotOptions.of("deposit-02-after").disableCounterPrefix());
 
@@ -82,7 +74,7 @@ public final class DepositGameTest implements FabricClientGameTest {
                 expect(problems, count(box, Items.SHULKER_BOX) == 1, "chest shulker box missing");
                 return problems.toString();
             });
-            check(afterChest.isEmpty(), "chest deposit: " + afterChest);
+            TestActions.check(afterChest.isEmpty(), "chest deposit: " + afterChest);
             context.setScreen(() -> null);
 
             // A shulker box refuses shulker boxes: that one must stay behind.
@@ -92,8 +84,8 @@ public final class DepositGameTest implements FabricClientGameTest {
                 inv.setItem(20, new ItemStack(Items.SHULKER_BOX));
                 inv.setItem(21, new ItemStack(Items.OAK_LOG, 16));
             });
-            openAt(context, world, shulker, ShulkerBoxScreen.class);
-            clickDepositButton(context);
+            TestActions.openAt(context, world, shulker, ShulkerBoxScreen.class);
+            TestActions.clickDepositButton(context);
             context.waitTicks(10);
             String afterShulker = world.getServer().computeOnServer(server -> {
                 Inventory inv = server.getPlayerList().getPlayers().getFirst().getInventory();
@@ -105,10 +97,10 @@ public final class DepositGameTest implements FabricClientGameTest {
                 expect(problems, inv.getItem(0).is(Items.DIAMOND_SWORD), "locked sword left (shulker)");
                 return problems.toString();
             });
-            check(afterShulker.isEmpty(), "shulker deposit: " + afterShulker);
+            TestActions.check(afterShulker.isEmpty(), "shulker deposit: " + afterShulker);
 
-            altClickInventorySlot(context, 5);
-            check(context.computeOnClient(c -> !ConfigIo.get().locked().isLocked(5)
+            TestActions.altClickInventorySlot(context, 5);
+            TestActions.check(context.computeOnClient(c -> !ConfigIo.get().locked().isLocked(5)
                     && ConfigIo.get().locked().isLocked(0)), "a second Alt-click should unlock slot 5");
             context.setScreen(() -> null);
         } finally {
@@ -117,62 +109,6 @@ public final class DepositGameTest implements FabricClientGameTest {
                 ConfigIo.save();
             });
         }
-    }
-
-    private static void openAt(ClientGameTestContext context, TestSingleplayerContext world, BlockPos pos,
-                               Class<? extends AbstractContainerScreen<?>> screen) {
-        world.getServer().runOnServer(server -> {
-            ServerPlayer player = server.getPlayerList().getPlayers().getFirst();
-            ServerLevel level = player.level();
-            player.openMenu(level.getBlockState(pos).getMenuProvider(level, pos));
-        });
-        context.waitForScreen(screen);
-        context.waitTicks(5);
-    }
-
-    /** Hold Left Alt and left-click the menu slot backed by inventory index {@code index}. */
-    private static void altClickInventorySlot(ClientGameTestContext context, int index) {
-        double[] pos = context.computeOnClient(client -> {
-            AbstractContainerScreen<?> screen = (AbstractContainerScreen<?>) client.gui.screen();
-            AbstractContainerScreenAccessor access = (AbstractContainerScreenAccessor) screen;
-            for (Slot slot : screen.getMenu().slots) {
-                if (slot.container instanceof Inventory && slot.getContainerSlot() == index) {
-                    return toWindow(client, access.quickdeposit$leftPos() + slot.x + 8,
-                            access.quickdeposit$topPos() + slot.y + 8);
-                }
-            }
-            throw new AssertionError("no menu slot for inventory index " + index);
-        });
-        context.getInput().setCursorPos(pos[0], pos[1]);
-        context.waitTick();
-        context.getInput().holdKey(InputConstants.KEY_LALT);
-        context.waitTick();
-        context.getInput().pressMouse(InputConstants.MOUSE_BUTTON_LEFT);
-        context.waitTick();
-        context.getInput().releaseKey(InputConstants.KEY_LALT);
-        context.waitTick();
-    }
-
-    private static void clickDepositButton(ClientGameTestContext context) {
-        double[] pos = context.computeOnClient(client -> {
-            List<AbstractWidget> widgets = Screens.getWidgets(client.gui.screen()).stream()
-                    .filter(w -> w instanceof AbstractWidget)
-                    .map(w -> (AbstractWidget) w)
-                    .filter(w -> w.getMessage().getString().equals("Quick Deposit"))
-                    .toList();
-            check(widgets.size() == 1, "expected one Quick Deposit button, found " + widgets.size());
-            AbstractWidget button = widgets.getFirst();
-            check(button.active, "Quick Deposit button should be active in singleplayer");
-            return toWindow(client, button.getX() + button.getWidth() / 2.0, button.getY() + button.getHeight() / 2.0);
-        });
-        context.getInput().setCursorPos(pos[0], pos[1]);
-        context.waitTick();
-        context.getInput().pressMouse(InputConstants.MOUSE_BUTTON_LEFT);
-    }
-
-    private static double[] toWindow(Minecraft client, double guiX, double guiY) {
-        double scale = client.getWindow().getGuiScale();
-        return new double[] {guiX * scale, guiY * scale};
     }
 
     private static int count(Container box, net.minecraft.world.item.Item item) {
@@ -188,12 +124,6 @@ public final class DepositGameTest implements FabricClientGameTest {
     private static void expect(StringBuilder problems, boolean ok, String message) {
         if (!ok) {
             problems.append(message).append("; ");
-        }
-    }
-
-    private static void check(boolean condition, String message) {
-        if (!condition) {
-            throw new AssertionError(message);
         }
     }
 }

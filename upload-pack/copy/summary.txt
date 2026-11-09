@@ -1,0 +1,10 @@
+PRIMARY (use this one), 137 characters
+One button empties your inventory into a chest. Hold Left Alt and click a slot to lock it, so your tools, torches and food stay with you.
+
+ALT 1, leads with the problem, 145 characters
+Back from the mine with every slot full? One click moves the lot into the chest, except the slots you've locked for your sword, pickaxe and food.
+
+ALT 2, leads with the mechanic, 117 characters
+A deposit-all button for chests, barrels and shulker boxes that skips the inventory slots you lock with an Alt-click.
+
+Modrinth caps the summary at 256 characters; CurseForge at 255. All three fit both.

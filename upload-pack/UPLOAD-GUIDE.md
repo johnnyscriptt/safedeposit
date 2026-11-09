@@ -47,11 +47,11 @@ House rule: no em dashes anywhere in store text. Run `check_store_text.py` over 
 | Summary | PRIMARY line of `copy/summary.txt` |
 | Description | `copy/description-modrinth.md` |
 | Icon | `icon/modrinth-icon-512.png` (never the ChatGPT one) |
-| Categories | |
-| Client / server | |
+| Categories | Utility, Storage |
+| Client / server | Client required, Server required (the server moves the items; clients without the mod can still join) |
 | License | MIT |
 | Source / issues | the GitHub URLs above |
-| AI disclosure | on; text from references/store-copy.md |
+| AI disclosure | on: "The code was written with an AI coding assistant (Claude). Store text was drafted with AI and edited by hand. The icon and gallery are real in-game captures." |
 
 Gallery: every image in order, 01 featured, titles and descriptions from `gallery/captions.md`.
 Version: `files/quickdeposit-0.1.0.jar`, number `0.1.0`, title `Quick Deposit 0.1.0`, Fabric, 26.3,
@@ -65,11 +65,11 @@ Fabric API Required, changelog `copy/changelog-0.1.0.md`, Release.
 | Summary | same PRIMARY line |
 | Description | `copy/description-curseforge.html` |
 | Logo | `icon/curseforge-avatar-400.png` (under 100 KB) |
-| Categories | |
+| Categories | Utility & QoL (main), Storage |
 | License | MIT, allow distribution to 3rd party |
 | Source | GitHub, `johnnyscriptt/quickdeposit` |
 
-File: the jar, display name `Quick Deposit 0.1.0`, Release, Client + Server (or Client), Fabric,
+File: the jar, display name `Quick Deposit 0.1.0`, Release, Client + Server, Fabric,
 Java 25, 26.3, Fabric API as Required Dependency, changelog, publish automatically once approved.
 
 ## Before you upload

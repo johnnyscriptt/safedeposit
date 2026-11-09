@@ -30,7 +30,9 @@ public final class IconRenderGameTest implements FabricClientGameTest {
     }
 
     private static final List<Variant> VARIANTS = List.of(
-            new Variant("main", () -> new ItemStack(Items.CHEST), () -> ItemStack.EMPTY));
+            new Variant("chest-hopper", () -> new ItemStack(Items.CHEST), () -> new ItemStack(Items.HOPPER)),
+            new Variant("chest-pickaxe", () -> new ItemStack(Items.CHEST), () -> new ItemStack(Items.DIAMOND_PICKAXE)),
+            new Variant("chest", () -> new ItemStack(Items.CHEST), () -> ItemStack.EMPTY));
 
     @Override
     public void runTest(ClientGameTestContext context) {
